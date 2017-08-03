@@ -22,3 +22,4 @@
 /Users/raphaelcabral/git/dotsandarrows/Dots and Arrows/Temp/bin/Debug/Assembly-CSharp.dll
 /Users/raphaelcabral/git/dotsandarrows/Dots and Arrows/obj/Debug/Assembly-CSharp.dll
 /Users/raphaelcabral/git/dotsandarrows/Dots and Arrows/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/raphaelcabral/git/dotsandarrows/Dots and Arrows/Temp/bin/Debug/UnityEngine.Advertisements.dll
