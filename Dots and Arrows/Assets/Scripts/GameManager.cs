@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
 	public AudioSource[] correctSounds;
 	public AudioSource[] wrongSounds;
 	public AudioSource restartGameSound;
-
+	public AudioSource GameMusic;
 	public bool levelInProgress;
 	public Text gameOverText;
 	public int level;
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour {
 		livesText.text = "Lives: " + lives;
 		gameOverButton.SetActive (false);
 		restartGameSound.Play ();
-
+		GameMusic.pitch = 0.80f;
 
 	}
 	
@@ -109,6 +109,8 @@ public class GameManager : MonoBehaviour {
 		LevelText.text = "Level: " + level;
 		stayLit = stayLit - 0.05f;
 		level++;
+		GameMusic.pitch = GameMusic.pitch*1.02f;
+
 	}
 
 	public void ResetGame(){
