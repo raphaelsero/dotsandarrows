@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour {
 	public GameObject gameOverButton;
 	public GameObject LevelButton;
 
+	public AudioSource[] correctSounds;
+	public AudioSource[] wrongSounds;
+	public AudioSource restartGameSound;
+
 	public bool levelInProgress;
 	public Text gameOverText;
 	public int level;
@@ -42,6 +46,9 @@ public class GameManager : MonoBehaviour {
 		scoreText.text = "Score: " + score;
 		livesText.text = "Lives: " + lives;
 		gameOverButton.SetActive (false);
+		restartGameSound.Play ();
+
+
 	}
 	
 	// Update is called once per frame
@@ -91,6 +98,7 @@ public class GameManager : MonoBehaviour {
 		if (levelInProgress) {
 			return;
 		}
+		correctSounds [Random.Range (0, correctSounds.Length)].Play ();
 		levelInProgress = true;
 		positionInSequence = 0;
 		colorSelect = Random.Range (0, colors.Length);
@@ -106,12 +114,14 @@ public class GameManager : MonoBehaviour {
 	public void ResetGame(){
 		// this object was clicked - do something
 		Destroy (this.gameObject);
+
 		SceneManager.LoadScene("Game");
 	} 
 	public void ColorPressed(int whichButton){
 		if (activeSequence[positionInSequence] == whichButton) {
 //			sc.IncrementScore ();
 			score++;
+			correctSounds [Random.Range (0, correctSounds.Length)].Play ();
 			scoreText.text = "Score: " + score;
 			Debug.Log ("Score: " + score );
 		} else {
@@ -119,8 +129,11 @@ public class GameManager : MonoBehaviour {
 				--lives;
 			}
 			livesText.text = "Lives: " + lives;
+			wrongSounds [Random.Range (0, wrongSounds.Length)].Play ();
+
 			Debug.Log("Lives " + lives);
 			if(lives == 0){
+
 				LevelText.text = "GAME OVER";
 				LevelButton.SetActive(false);
 
