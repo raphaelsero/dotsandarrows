@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 	public SpriteRenderer[] colors;
 	private int colorSelect;
-	private int lives = 3;
+	private int lives;
 	private int score;
 	public Text scoreText;
 	public Text livesText;
@@ -53,12 +53,13 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		if (shouldBeLit) {
 			stayLitCounter -= Time.deltaTime;
 			levelInProgress = true;
 		} 
 		if( stayLitCounter < 0) {
-			colors [activeSequence[positionInSequence]].color = new Color (colors [activeSequence[positionInSequence]].color.r, colors [activeSequence[positionInSequence]].color.g, colors [activeSequence[positionInSequence]].color.b, 0.5f);
+			colors [activeSequence[positionInSequence]].color = new Color (colors [activeSequence[positionInSequence]].color.r, colors [activeSequence[positionInSequence]].color.g, colors [activeSequence[positionInSequence]].color.b, 0.3f);
 			shouldBeLit = false;
 			shouldBeDark = true;
 			waitBetweenCounter = waitBetweenLights;
@@ -97,6 +98,10 @@ public class GameManager : MonoBehaviour {
 	public void StartGame(){
 		if (levelInProgress) {
 			return;
+		}
+		if(score % 10 == 0){
+			lives++;
+			livesText.text = "Lives: " + lives;
 		}
 		correctSounds [Random.Range (0, correctSounds.Length)].Play ();
 		levelInProgress = true;

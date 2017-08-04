@@ -38,7 +38,7 @@ public class ButtonController : MonoBehaviour {
 		}
 		if (Input.GetKeyUp (key) && counter == 0) {
 			counter++;
-			theSprite.color = new Color (theSprite.color.r, theSprite.color.g, theSprite.color.b, 0.5f);
+			theSprite.color = new Color (theSprite.color.r, theSprite.color.g, theSprite.color.b, 0.3f);
 			v3T = v3Tsafe;
 			transform.localScale = v3Tsafe;	
 			gm.ColorPressed (thisButtonNumber);
@@ -54,7 +54,7 @@ public class ButtonController : MonoBehaviour {
 	}
 
 	public void OnMouseUp(){
-		theSprite.color = new Color (theSprite.color.r, theSprite.color.g, theSprite.color.b, 0.5f);	
+		theSprite.color = new Color (theSprite.color.r, theSprite.color.g, theSprite.color.b, 0.3f);	
 	}
 
 }
