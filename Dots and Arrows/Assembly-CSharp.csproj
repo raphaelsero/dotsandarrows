@@ -54,7 +54,9 @@
      <Compile Include="Assets\Scripts\ButtonController.cs" />
      <Compile Include="Assets\Scripts\DotController.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GameOverController.cs" />
      <Compile Include="Assets\Scripts\ScoreController.cs" />
+     <Compile Include="Assets\Scripts\StartGameController.cs" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>/Users/raphaelcabral/git/dotsandarrows/Dots and Arrows/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
